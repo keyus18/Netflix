@@ -1,0 +1,542 @@
+/* =======================================================
+   VARIABLES DE COLOR — paleta inspirada en netflix.com
+   ======================================================= */
+:root {
+  --negro: #141414;
+  --negro-solido: #000000;
+  --gris-oscuro: #181818;
+  --gris-tarjeta: #222222;
+  --rojo: #e50914;
+  --rojo-hover: #f40612;
+  --gris-claro: #b3b3b3;
+  --blanco: #ffffff;
+  --amarillo-estrella: #f5c518;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+/* =======================================================
+   NAVBAR
+   ======================================================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 18px 4%;
+  /* Empieza transparente con un degradado para que se note sobre el hero */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 10%, rgba(0, 0, 0, 0));
+  transition: background-color 0.3s ease;
+}
+
+/* Esta clase la agrega el useState de Navbar.jsx cuando window.scrollY > 40 */
+.navbar--solid {
+  background: var(--negro-solido);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.navbar__logo {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--rojo);
+  text-transform: uppercase;
+}
+
+.navbar__links {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar__link {
+  font-size: 14px;
+  color: var(--gris-claro);
+  transition: color 0.2s ease;
+}
+
+.navbar__link:hover,
+.navbar__link.active {
+  color: var(--blanco);
+  font-weight: 600;
+}
+
+/* =======================================================
+   HERO (banner principal de Home)
+   ======================================================= */
+.hero {
+  position: relative;
+  height: 78vh;
+  min-height: 420px;
+  background-size: cover;
+  background-position: center top;
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.hero__gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, var(--negro) 0%, rgba(20, 20, 20, 0.2) 60%, rgba(20, 20, 20, 0.6) 100%),
+    linear-gradient(to right, rgba(20, 20, 20, 0.8) 0%, rgba(20, 20, 20, 0.1) 60%);
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 560px;
+  padding: 0 4%;
+}
+
+.hero__title {
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 800;
+  margin-bottom: 16px;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.hero__description {
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--blanco);
+  margin-bottom: 24px;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.hero__actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* =======================================================
+   BOTONES (reutilizados en toda la app)
+   ======================================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: opacity 0.2s ease, transform 0.1s ease;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn--primary {
+  background: var(--rojo);
+  color: var(--blanco);
+}
+
+.btn--primary:hover {
+  background: var(--rojo-hover);
+}
+
+.btn--secondary {
+  background: rgba(109, 109, 110, 0.7);
+  color: var(--blanco);
+}
+
+.btn--secondary:hover {
+  background: rgba(109, 109, 110, 0.4);
+}
+
+.btn[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* =======================================================
+   FILAS DE PELÍCULAS POR GÉNERO (Home)
+   ======================================================= */
+.movie-row {
+  padding: 0 4% 28px;
+}
+
+.movie-row__title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.movie-row__track {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  /* oculta la scrollbar horizontal para que se vea más prolijo, como Netflix */
+  scrollbar-width: none;
+}
+.movie-row__track::-webkit-scrollbar {
+  display: none;
+}
+
+/* =======================================================
+   MOVIE CARD (tarjeta de póster reutilizable)
+   ======================================================= */
+.movie-card {
+  position: relative;
+  flex: 0 0 auto;
+  width: 180px;
+  aspect-ratio: 2 / 3;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.movie-card:hover {
+  transform: scale(1.07);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  z-index: 5;
+}
+
+.movie-card__poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.movie-card__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 8px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.movie-card:hover .movie-card__overlay {
+  opacity: 1;
+}
+
+.movie-card__title {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.movie-card__meta {
+  font-size: 11px;
+  color: var(--gris-claro);
+}
+
+/* =======================================================
+   PÁGINA DE DETALLE DE PELÍCULA
+   ======================================================= */
+.movie-detail {
+  padding-bottom: 60px;
+}
+
+.movie-detail__backdrop {
+  position: relative;
+  height: 50vh;
+  min-height: 320px;
+  background-size: cover;
+  background-position: center;
+}
+
+.movie-detail__gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--negro) 5%, transparent 100%);
+}
+
+.movie-detail__content {
+  position: relative;
+  display: flex;
+  gap: 28px;
+  padding: 0 4%;
+  margin-top: -120px;
+  z-index: 2;
+}
+
+.movie-detail__poster {
+  width: 220px;
+  border-radius: 6px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  flex-shrink: 0;
+}
+
+.movie-detail__info {
+  padding-top: 60px;
+  max-width: 600px;
+}
+
+.movie-detail__info h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 13px;
+  color: var(--gris-claro);
+  border: 1px solid var(--gris-claro);
+  border-radius: 4px;
+  padding: 3px 10px;
+  margin-bottom: 14px;
+}
+
+.movie-detail__description {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #e5e5e5;
+  margin-bottom: 16px;
+}
+
+.movie-detail__rating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.movie-detail__rating-text {
+  color: var(--gris-claro);
+  font-size: 14px;
+}
+
+.movie-detail__reviews {
+  margin-top: 40px;
+  padding: 0 4%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.back-link {
+  display: inline-block;
+  margin: 30px 4% 0;
+  color: var(--gris-claro);
+  font-size: 14px;
+}
+.back-link:hover {
+  color: var(--blanco);
+}
+
+/* =======================================================
+   ESTRELLAS (StarRating)
+   ======================================================= */
+.star-rating {
+  display: inline-flex;
+  gap: 2px;
+}
+
+.star {
+  color: #4d4d4d; /* estrella vacía */
+  transition: color 0.15s ease, transform 0.1s ease;
+  line-height: 1;
+  user-select: none;
+}
+
+.star--filled {
+  color: var(--amarillo-estrella);
+}
+
+.star-rating .star:hover {
+  transform: scale(1.15);
+}
+
+/* =======================================================
+   FORMULARIO DE RESEÑA
+   ======================================================= */
+.review-form {
+  background: var(--gris-oscuro);
+  border-radius: 8px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.review-form__title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.review-form__input,
+.review-form__textarea {
+  width: 100%;
+  background: var(--gris-tarjeta);
+  border: 1px solid #3a3a3a;
+  border-radius: 4px;
+  padding: 10px 12px;
+  color: var(--blanco);
+  font-size: 14px;
+  resize: vertical;
+}
+
+.review-form__input:focus,
+.review-form__textarea:focus {
+  outline: none;
+  border-color: var(--gris-claro);
+}
+
+.review-form__error {
+  color: #ff6b6b;
+  font-size: 13px;
+}
+
+.review-form .btn {
+  align-self: flex-start;
+}
+
+/* =======================================================
+   LISTA DE RESEÑAS
+   ======================================================= */
+.review-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.review-list__empty {
+  color: var(--gris-claro);
+  font-size: 14px;
+}
+
+.review-card {
+  background: var(--gris-oscuro);
+  border-radius: 8px;
+  padding: 16px 18px;
+}
+
+.review-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.review-card__user {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.review-card__comment {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #d9d9d9;
+}
+
+/* =======================================================
+   PÁGINA DE BÚSQUEDA
+   ======================================================= */
+.buscar {
+  padding: 110px 4% 60px;
+}
+
+.buscar__title {
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+.buscar__input {
+  width: 100%;
+  max-width: 460px;
+  padding: 12px 16px;
+  border-radius: 4px;
+  border: 1px solid #3a3a3a;
+  background: var(--gris-tarjeta);
+  color: var(--blanco);
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+
+.buscar__input:focus {
+  outline: none;
+  border-color: var(--gris-claro);
+}
+
+.buscar__resultados {
+  color: var(--gris-claro);
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.buscar__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+}
+
+.buscar__grid .movie-card {
+  width: 100%;
+}
+
+/* =======================================================
+   404
+   ======================================================= */
+.not-found {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 16px;
+  padding: 0 20px;
+}
+
+.not-found h1 {
+  font-size: 80px;
+  color: var(--rojo);
+}
+
+/* =======================================================
+   ESTADO DE CARGA
+   ======================================================= */
+.loading {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--gris-claro);
+}
+
+/* =======================================================
+   RESPONSIVE — pantallas chicas
+   ======================================================= */
+@media (max-width: 700px) {
+  .movie-detail__content {
+    flex-direction: column;
+    margin-top: -60px;
+  }
+  .movie-detail__poster {
+    width: 140px;
+  }
+  .movie-detail__info {
+    padding-top: 0;
+  }
+  .movie-card {
+    width: 130px;
+  }
+  .hero__content {
+    max-width: 100%;
+  }
+}

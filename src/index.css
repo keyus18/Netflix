@@ -1,0 +1,47 @@
+/* =======================================================
+   RESET GLOBAL
+   Quitamos los márgenes/paddings por defecto del navegador
+   y forzamos box-sizing: border-box en todo el documento para
+   que paddings y bordes no rompan los anchos calculados.
+   ======================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  background-color: #141414;
+  color: #ffffff;
+  /* Netflix usa una tipografía propia (Netflix Sans), que es privada.
+     Usamos una pila de fuentes de sistema muy similar en forma/peso. */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  scroll-behavior: smooth;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input, textarea {
+  font-family: inherit;
+}
+
+/* Barra de scroll oscura, como en netflix.com */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #141414;
+}
+::-webkit-scrollbar-thumb {
+  background: #424242;
+  border-radius: 5px;
+}
