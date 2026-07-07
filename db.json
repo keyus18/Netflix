@@ -1,0 +1,176 @@
+{
+  "movies": [
+    {
+      "id": 1,
+      "title": "El Eco de la Medianoche",
+      "genre": "Suspenso",
+      "year": 2023,
+      "duration": "118 min",
+      "description": "Una periodista empieza a recibir llamadas anónimas que predicen tragedias antes de que sucedan. Para descubrir quién está detrás, deberá enfrentar los secretos más oscuros de su propia ciudad.",
+      "image": "/posters/1.svg",
+      "backdrop": "/backdrops/1.svg"
+    },
+    {
+      "id": 2,
+      "title": "Fronteras de Cristal",
+      "genre": "Drama",
+      "year": 2021,
+      "duration": "104 min",
+      "description": "Dos familias separadas por una frontera invisible deben aprender a convivir cuando un accidente las obliga a compartir el mismo techo durante un invierno entero.",
+      "image": "/posters/2.svg",
+      "backdrop": "/backdrops/2.svg"
+    },
+    {
+      "id": 3,
+      "title": "Código Carmesí",
+      "genre": "Acción",
+      "year": 2024,
+      "duration": "131 min",
+      "description": "Un exagente de inteligencia debe volver al ruedo cuando descubre que la organización que lo traicionó está a punto de lanzar un ataque a gran escala.",
+      "image": "/posters/3.svg",
+      "backdrop": "/backdrops/3.svg"
+    },
+    {
+      "id": 4,
+      "title": "Risas en Cuarentena",
+      "genre": "Comedia",
+      "year": 2022,
+      "duration": "96 min",
+      "description": "Cinco amigos que no se soportan quedan encerrados en una cabaña por una tormenta. Lo que empieza como un desastre termina siendo la mejor semana de sus vidas.",
+      "image": "/posters/4.svg",
+      "backdrop": "/backdrops/4.svg"
+    },
+    {
+      "id": 5,
+      "title": "Más Allá de Kepler",
+      "genre": "Ciencia Ficción",
+      "year": 2023,
+      "duration": "142 min",
+      "description": "La última tripulación humana viva debe decidir si regresa a una Tierra moribunda o funda una nueva civilización en un planeta que no entienden todavía.",
+      "image": "/posters/5.svg",
+      "backdrop": "/backdrops/5.svg"
+    },
+    {
+      "id": 6,
+      "title": "El Último Verano",
+      "genre": "Drama",
+      "year": 2020,
+      "duration": "109 min",
+      "description": "Tres hermanas se reencuentran en la casa de su infancia para despedirse de su padre y, en el proceso, de los rencores que las separaron durante veinte años.",
+      "image": "/posters/6.svg",
+      "backdrop": "/backdrops/6.svg"
+    },
+    {
+      "id": 7,
+      "title": "Sombras del Cartel",
+      "genre": "Acción",
+      "year": 2022,
+      "duration": "124 min",
+      "description": "Una detective infiltrada debe elegir entre cumplir su misión o salvar a la única persona que la trató como familia dentro de la organización criminal.",
+      "image": "/posters/7.svg",
+      "backdrop": "/backdrops/7.svg"
+    },
+    {
+      "id": 8,
+      "title": "Recetas para Sobrevivir",
+      "genre": "Comedia",
+      "year": 2024,
+      "duration": "101 min",
+      "description": "Un chef arruinado acepta dar clases de cocina en la cárcel del pueblo y descubre que sus alumnos tienen mucho más para enseñarle a él que al revés.",
+      "image": "/posters/8.svg",
+      "backdrop": "/backdrops/8.svg"
+    },
+    {
+      "id": 9,
+      "title": "La Casa de las Mareas",
+      "genre": "Suspenso",
+      "year": 2021,
+      "duration": "112 min",
+      "description": "Una arquitecta restaura una vieja casa frente al mar sin saber que cada marea alta revela un nuevo secreto sobre la familia que vivió ahí antes que ella.",
+      "image": "/posters/9.svg",
+      "backdrop": "/backdrops/9.svg"
+    },
+    {
+      "id": 10,
+      "title": "Órbita Cero",
+      "genre": "Ciencia Ficción",
+      "year": 2020,
+      "duration": "127 min",
+      "description": "Cuando una estación espacial pierde contacto con la Tierra, su tripulación descubre que el verdadero peligro no está afuera, sino entre ellos mismos.",
+      "image": "/posters/10.svg",
+      "backdrop": "/backdrops/10.svg"
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "movieId": 1,
+      "user": "Carla M.",
+      "rating": 5,
+      "comment": "Atrapante de principio a fin, no pude parar de verla."
+    },
+    {
+      "id": 2,
+      "movieId": 1,
+      "user": "Tomás R.",
+      "rating": 4,
+      "comment": "Muy buena tensión narrativa, el final me dejó pensando."
+    },
+    {
+      "id": 3,
+      "movieId": 2,
+      "user": "Lucía F.",
+      "rating": 4,
+      "comment": "Una historia muy humana, las actuaciones son excelentes."
+    },
+    {
+      "id": 4,
+      "movieId": 3,
+      "user": "Martín G.",
+      "rating": 5,
+      "comment": "Las escenas de acción están increíblemente bien filmadas."
+    },
+    {
+      "id": 5,
+      "movieId": 3,
+      "user": "Sofía P.",
+      "rating": 3,
+      "comment": "Entretenida pero el guion es bastante predecible."
+    },
+    {
+      "id": 6,
+      "movieId": 4,
+      "user": "Diego A.",
+      "rating": 4,
+      "comment": "Me reí muchísimo, ideal para ver en grupo."
+    },
+    {
+      "id": 7,
+      "movieId": 5,
+      "user": "Valentina S.",
+      "rating": 5,
+      "comment": "Una de las mejores películas de ciencia ficción que vi en años."
+    },
+    {
+      "id": 8,
+      "movieId": 6,
+      "user": "Nicolás B.",
+      "rating": 4,
+      "comment": "Drama familiar muy bien escrito, emotivo sin caer en lo cursi."
+    },
+    {
+      "id": 9,
+      "movieId": 7,
+      "user": "Agustina L.",
+      "rating": 4,
+      "comment": "Buen ritmo y una protagonista muy carismática."
+    },
+    {
+      "id": 10,
+      "movieId": 9,
+      "user": "Federico C.",
+      "rating": 5,
+      "comment": "El ambiente de la casa genera una tensión constante, excelente."
+    }
+  ]
+}
